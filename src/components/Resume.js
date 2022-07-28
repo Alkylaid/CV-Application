@@ -29,9 +29,9 @@ class Resume extends Component {
             <p>{this.props.general.title}</p>
           </div>
           <div className="resume-heading contact">
-            <p>{this.props.general.address}</p>
-            <p>{this.props.general.phone}</p>
-            <p>{this.props.general.email}</p>
+            <div><span className="fa-solid fa-house"/>{this.props.general.address}</div>
+           <div><span className="fa-solid fa-phone"/>{this.props.general.phone}</div> 
+           <div><span className="fa-solid fa-envelope"/>{this.props.general.email}</div> 
           </div>
         </div>
         <div className="resume-desc">

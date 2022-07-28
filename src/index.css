@@ -33,13 +33,13 @@ h2 {
   background-color: var(--white);
   width: 50%;
   border-right: 1px solid var(--purple);
-  flex-grow: 1;
+
 }
 
 #right {
   width: 50%;
   background-color: var(--white);
-  flex-grow: 1;
+
 }
 
 #resume {
@@ -87,6 +87,10 @@ input[type='date']:valid:before {
   cursor: pointer;
 }
 
+.save-button:hover,.edit-button:hover{
+  background-color: var(--blue);
+}
+
 .date-fields {
   display: flex;
   justify-content: space-between;
@@ -116,9 +120,20 @@ input[type='date']:valid:before {
 }
 
 .resume-heading.contact {
-  display: block;
+  display: inline-block;
 }
 
+.resume-heading.contact div{
+  margin-bottom: 10px;
+  text-align:right;
+
+  }
+.resume-heading.contact span{
+    margin-right: 10px;
+    text-align:left;
+    }
+
+  
 .resume-edu-item, .resume-exp-item{
   display: grid;
   padding: 10px;
