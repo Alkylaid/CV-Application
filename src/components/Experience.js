@@ -43,6 +43,7 @@ class Experience extends Component {
         break;
       default:
     }
+
   };
 
   handleClick = (e) => {

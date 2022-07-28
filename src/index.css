@@ -1,9 +1,9 @@
-:root{
-  --white: #F5F9F9;
-  --blue: #6CD3E9;
-  --red: #BE4759;
-  --orange: #D87357;
-  --purple: #2D2340;
+:root {
+  --white: #f5f9f9;
+  --blue: #6cd3e9;
+  --red: #be4759;
+  --orange: #d87357;
+  --purple: #2d2340;
 }
 
 body {
@@ -12,49 +12,51 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
-  height: 100vh;
-  background-color: var(--purple);
+  height: auto;
+  background-color: var(--white);
 }
 
-#root,#container{
+
+
+#container {
   width: 100%;
-  height: 100%;
   display: flex;
+  min-height: 100vh;
+  height: auto;
 }
 
-h2{
+h2 {
   color: var(--red);
 }
 
-
-#left{
+#left {
   background-color: var(--white);
   width: 50%;
-  height: 100%;
   border-right: 1px solid var(--purple);
-
+  flex-grow: 1;
 }
 
-#right{
+#right {
   width: 50%;
-  height: 100%;
   background-color: var(--white);
+  flex-grow: 1;
 }
 
-#resume{
+#resume {
   margin: 25px;
 }
 
-.general-info,.education-info, .experience-info{
+.general-info,
+.education-info,
+.experience-info {
   display: block;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   width: 50%;
   margin-left: 25px;
-
 }
 
-input{
+input {
   height: 25px;
   border-radius: 5px;
   margin: 5px;
@@ -62,53 +64,93 @@ input{
   font-family: 'Noto Sans', sans-serif;
 }
 
-input[type="date"]:before {
+input[type='date']:before {
   content: attr(placeholder) !important;
   color: #aaa;
   margin-right: 0.5em;
 }
-input[type="date"]:focus:before,
-input[type="date"]:valid:before {
-  content: "";
+input[type='date']:focus:before,
+input[type='date']:valid:before {
+  content: '';
 }
 
-.save-button, .edit-button{
+.save-button,
+.edit-button {
   border: none;
   background-color: var(--orange);
   width: 50px;
   border-radius: 5px;
   color: var(--white);
   font-family: 'Noto Sans', sans-serif;
-  padding: 5px;
+  height: 25px;
+  margin: 5px;
+  cursor: pointer;
 }
 
-.date-fields{
+.date-fields {
   display: flex;
   justify-content: space-between;
-
 }
 
-#to-field,#from-field,#exTo-field,#exFrom-field{
-  width: 50%
+#to-field,
+#from-field,
+#exTo-field,
+#exFrom-field {
+  width: 50%;
 }
 
-.resume-heading{
+.resume-heading {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.resume-heading h1{
+.resume-heading h1 {
   margin-top: 0;
 }
-.resume-heading.person{
-  display:block;
+.resume-heading.person {
+  display: block;
 }
 
-.resume-heading.person p{
+.resume-heading.person p {
   margin-top: -20px;
+}
+
+.resume-heading.contact {
+  display: block;
+}
+
+.resume-edu-item, .resume-exp-item{
+  display: grid;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.resume-edu-item {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 1fr;
+ 
+}
+
+.resume-edu-item-date,
+.resume-edu-item-major,
+.resume-edu-item-loc,
+.resume-exp-item-date,
+.resume-exp-item-comp,
+.resume-exp-item-pos {
+  margin: 0;
+}
+
+.resume-edu-item-date, .resume-exp-item-date {
+  justify-self: end;
+}
+
+.resume-exp-item{
+  display:grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(3,auto);
 
 }
 
-.resume-heading.contact{
-  display:block;
+.resume-exp-item-resp {
+  grid-column: 1 / 3;
 }

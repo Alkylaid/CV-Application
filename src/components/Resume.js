@@ -38,15 +38,31 @@ class Resume extends Component {
           <p>{this.props.general.description}</p>
         </div>
         <div className="resume-edu">
+          <h2>Education</h2>
           {this.props.education.map((edu) => {
             return (
-              <div key={edu.id}>
-                <h2>{edu.name}</h2>
-                <p>{edu.city}</p>
-                <p>{edu.major}</p>
-                <p>
+              <div key={edu.id} className="resume-edu-item">
+                <h3 className="resume-edu-item-major">{edu.major}</h3>
+                <p className="resume-edu-item-date">
                   {this.formatDate(edu.from)} to {this.formatDate(edu.to)}
                 </p>
+                <p className="resume-edu-item-loc"> {edu.name} - {edu.city}</p>
+               
+              </div>
+            );
+          })}
+        </div>
+        <div className="resume-exp">
+          <h2>Experience</h2>
+          {this.props.experience.map((exp) => {
+            return (
+              
+              <div key={exp.id} className="resume-exp-item">
+                {console.log(exp.responsibility)}
+                <h3 className="resume-exp-item-comp">{exp.company}</h3>
+                <p className="resume-exp-item-date">{this.formatDate(exp.from)} to {this.formatDate(exp.to)}</p>
+                <p className="resume-exp-item-pos">{exp.position}</p>
+                <p className="resume-exp-item-resp">{exp.responsibility}</p>
               </div>
             );
           })}
@@ -57,3 +73,4 @@ class Resume extends Component {
 }
 
 export default Resume;
+
