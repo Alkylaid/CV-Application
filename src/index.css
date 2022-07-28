@@ -15,7 +15,7 @@ code {
 
 
 
-.general-info,.education-info{
+.general-info,.education-info, .experience-info{
   display: block;
   display: flex;
   flex-direction:column;

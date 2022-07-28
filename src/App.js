@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import Education from './components/Education';
+import Experience from './components/Experience';
 import GeneralInfo from './components/General';
 
 class App extends Component {
@@ -16,10 +17,12 @@ class App extends Component {
         description: '',
       },
       education: [],
-      experience:[],
+      experience: [],
 
     };
     this.setGeneral = this.setGeneral.bind(this);
+    this.setEducation = this.setEducation.bind(this);
+    this.setExperience = this.setExperience.bind(this);
   }
 
     setGeneral = (generalInfo) => {
@@ -28,6 +31,10 @@ class App extends Component {
 
     setEducation = (educationInfo) => {
       this.setState({education: this.state.education.concat(educationInfo)});
+    }
+
+    setExperience = (expInfo) => {
+      this.setState({experience: this.state.experience.concat(expInfo)});
     }
   
 
@@ -38,6 +45,7 @@ class App extends Component {
         <form onSubmit={this.editGeneral}>
           <GeneralInfo setGeneral={this.setGeneral} />
           <Education setEducation={this.setEducation}/>
+          <Experience setExperience={this.setExperience}/>
         </form>
       
       </div>

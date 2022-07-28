@@ -92,7 +92,7 @@ class Education extends Component {
           value={this.state.education.to}
           placeholder="To"
         />
-        <button id="save-button" onClick={(e)=>{this.handleClick(e)}}>Save</button>
+        <button className="save-button" onClick={(e)=>{this.handleClick(e)}}>Save</button>
 
       </div>
     );
