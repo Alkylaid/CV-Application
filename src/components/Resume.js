@@ -29,16 +29,17 @@ class Resume extends Component {
             <p>{this.props.general.title}</p>
           </div>
           <div className="resume-heading contact">
-            <div><span className="fa-solid fa-house"/>{this.props.general.address}</div>
-           <div><span className="fa-solid fa-phone"/>{this.props.general.phone}</div> 
-           <div><span className="fa-solid fa-envelope"/>{this.props.general.email}</div> 
+            {this.props.general.address &&<div><span className="fa-solid fa-house"/>{this.props.general.address}</div> }
+            {this.props.general.phone && <div><span className="fa-solid fa-phone"/>{this.props.general.phone}</div> }
+            {this.props.general.email &&<div><span className="fa-solid fa-envelope"/>{this.props.general.email}</div>}
           </div>
         </div>
         <div className="resume-desc">
           <p>{this.props.general.description}</p>
         </div>
         <div className="resume-edu">
-          <h2>Education</h2>
+          {this.props.education.length >0 &&
+          <h2>Education</h2>}
           {this.props.education.map((edu) => {
             return (
               <div key={edu.id} className="resume-edu-item">
@@ -53,7 +54,7 @@ class Resume extends Component {
           })}
         </div>
         <div className="resume-exp">
-          <h2>Experience</h2>
+          {this.props.experience.length > 0 && <h2>Experience</h2>}
           {this.props.experience.map((exp) => {
             return (
               
