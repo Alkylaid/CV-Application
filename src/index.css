@@ -1,31 +1,65 @@
+:root{
+  --white: #F5F9F9;
+  --blue: #6CD3E9;
+  --red: #BE4759;
+  --orange: #D87357;
+  --purple: #2D2340;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin: 0 auto;
+  font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
+  height: 100vh;
+  background-color: var(--purple);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root,#container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+h2{
+  color: var(--red);
 }
 
 
+#left{
+  background-color: var(--white);
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid var(--purple);
+
+}
+
+#right{
+  width: 50%;
+  height: 100%;
+  background-color: var(--white);
+}
+
+#resume{
+  margin: 25px;
+}
 
 .general-info,.education-info, .experience-info{
   display: block;
   display: flex;
   flex-direction:column;
-  width: 25%;
+  width: 50%;
   margin-left: 25px;
+
 }
 
 input{
   height: 25px;
-  
+  border-radius: 5px;
+  margin: 5px;
+  border: 1px solid var(--purple);
+  font-family: 'Noto Sans', sans-serif;
 }
 
 input[type="date"]:before {
@@ -36,4 +70,45 @@ input[type="date"]:before {
 input[type="date"]:focus:before,
 input[type="date"]:valid:before {
   content: "";
+}
+
+.save-button, .edit-button{
+  border: none;
+  background-color: var(--orange);
+  width: 50px;
+  border-radius: 5px;
+  color: var(--white);
+  font-family: 'Noto Sans', sans-serif;
+  padding: 5px;
+}
+
+.date-fields{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#to-field,#from-field,#exTo-field,#exFrom-field{
+  width: 50%
+}
+
+.resume-heading{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.resume-heading h1{
+  margin-top: 0;
+}
+.resume-heading.person{
+  display:block;
+}
+
+.resume-heading.person p{
+  margin-top: -20px;
+
+}
+
+.resume-heading.contact{
+  display:block;
 }

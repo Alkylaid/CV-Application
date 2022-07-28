@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import uniqid from 'uniqid';
 
 class Education extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Education extends Component {
         major: '',
         from: '',
         to: '',
+        id: uniqid(),
       },
       educations: [],
     };
@@ -47,12 +49,11 @@ class Education extends Component {
     e.preventDefault();
     this.setState({
       educations: this.state.educations.concat(this.state.education),
-      education: {name: '', city: '', major: '', from: '', to: '' },
-    });
-    this.setEducation(this.state.educations)
- 
+      education: { name: '', city: '', major: '', from: '', to: '', id: uniqid()},
+    }, () => this.setEducation(this.state.educations));
+    
   };
-
+  
   render() {
     return (
       <div className="education-info">
@@ -78,22 +79,30 @@ class Education extends Component {
           value={this.state.education.major}
           placeholder="Major or Degree"
         />
-        <input
-          type="date"
-          id="from-field"
-          onChange={(e) => this.handleChange(e)}
-          value={this.state.education.from}
-          placeholder="From"
-        />
-        <input
-          type="date"
-          id="to-field"
-          onChange={(e) => this.handleChange(e)}
-          value={this.state.education.to}
-          placeholder="To"
-        />
-        <button className="save-button" onClick={(e)=>{this.handleClick(e)}}>Save</button>
-
+        <div className="date-fields">
+          <input
+            type="date"
+            id="from-field"
+            onChange={(e) => this.handleChange(e)}
+            value={this.state.education.from}
+            placeholder="From"
+          />
+          <input
+            type="date"
+            id="to-field"
+            onChange={(e) => this.handleChange(e)}
+            value={this.state.education.to}
+            placeholder="To"
+          />
+        </div>
+        <button
+          className="save-button"
+          onClick={(e) => {
+            this.handleClick(e);
+          }}
+        >
+          Save
+        </button>
       </div>
     );
   }

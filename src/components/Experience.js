@@ -45,11 +45,19 @@ class Experience extends Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    this.setState({
-      experiences: this.state.experiences.concat(this.state.experience),
-      experience: { company: '', position: '', responsibility: '', from: '', to: '' },
-    });
-    this.setExperience(this.state.experiences);
+    this.setState(
+      {
+        experiences: this.state.experiences.concat(this.state.experience),
+        experience: {
+          company: '',
+          position: '',
+          responsibility: '',
+          from: '',
+          to: '',
+        },
+      },
+      () => this.setExperience(this.state.experiences)
+    );
   };
 
   render() {
@@ -77,20 +85,22 @@ class Experience extends Component {
           value={this.state.experience.responsibility}
           placeholder="Responsibilities"
         />
-        <input
-          type="date"
-          id="exFrom-field"
-          onChange={(e) => this.handleChange(e)}
-          value={this.state.experience.from}
-          placeholder="From"
-        />
-        <input
-          type="date"
-          id="exTo-field"
-          onChange={(e) => this.handleChange(e)}
-          value={this.state.experience.to}
-          placeholder="To"
-        />
+        <div className="date-fields">
+          <input
+            type="date"
+            id="exFrom-field"
+            onChange={(e) => this.handleChange(e)}
+            value={this.state.experience.from}
+            placeholder="From"
+          />
+          <input
+            type="date"
+            id="exTo-field"
+            onChange={(e) => this.handleChange(e)}
+            value={this.state.experience.to}
+            placeholder="To"
+          />
+        </div>
         <button
           className="save-button"
           onClick={(e) => {
