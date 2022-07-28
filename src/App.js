@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component} from 'react';
+import Education from './components/Education';
 import GeneralInfo from './components/General';
 
 class App extends Component {
@@ -14,12 +15,8 @@ class App extends Component {
         email: '',
         description: '',
       },
-      education:{
-
-      },
-      experience:{
-
-      }
+      education: [],
+      experience:[],
 
     };
     this.setGeneral = this.setGeneral.bind(this);
@@ -28,16 +25,21 @@ class App extends Component {
     setGeneral = (generalInfo) => {
       this.setState({general: generalInfo})
     }
+
+    setEducation = (educationInfo) => {
+      this.setState({education: this.state.education.concat(educationInfo)});
+    }
   
+
 
   render() {
     return (
       <div id="container">
         <form onSubmit={this.editGeneral}>
           <GeneralInfo setGeneral={this.setGeneral} />
+          <Education setEducation={this.setEducation}/>
         </form>
-        {this.state.general.firstName}
-        {this.state.general.lastName}
+      
       </div>
     );
   }

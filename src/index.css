@@ -15,7 +15,7 @@ code {
 
 
 
-.general-info{
+.general-info,.education-info{
   display: block;
   display: flex;
   flex-direction:column;
@@ -26,4 +26,14 @@ code {
 input{
   height: 25px;
   
+}
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
 }

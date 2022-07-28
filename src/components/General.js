@@ -15,7 +15,7 @@ class GeneralInfo extends Component {
     };
   }
 
-  onChange = (e) => {
+  handleChange = (e) => {
     switch (e.target.id) {
       case 'firstName-field':
         this.setState({ firstName: e.target.value });
@@ -41,46 +41,44 @@ class GeneralInfo extends Component {
       default:
     }
     this.setGeneral(this.state);
-    console.log(this.state);
   };
 
   render() {
     return (
       <div className="general-info">
-        {console.log(this.props)}
         <h2>Personal Info</h2>
         <input
           type="text"
           id="firstName-field"
-          onChange={(e) => this.onChange(e)}
+          onChange={(e) => this.handleChange(e)}
           value={this.state.firstName}
           placeholder="First Name"
         />
         <input
           type="text"
           id="lastName-field"
-          onChange={(e) => this.onChange(e)}
+          onChange={(e) => this.handleChange(e)}
           value={this.state.lastName}
           placeholder="Last Name"
         />
         <input
           type="text"
           id="title-field"
-          onChange={(e) => this.onChange(e)}
+          onChange={(e) => this.handleChange(e)}
           value={this.state.title}
           placeholder="Title"
         />
         <input
           type="text"
           id="address-field"
-          onChange={(e) => this.onChange(e)}
+          onChange={(e) => this.handleChange(e)}
           value={this.state.address}
           placeholder="Address"
         />
         <input
           type="tel"
           id="phone-field"
-          onChange={(e) => this.onChange(e)}
+          onChange={(e) => this.handleChange(e)}
           value={this.state.phone}
           placeholder="Phone: 999-999-9999"
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -88,14 +86,14 @@ class GeneralInfo extends Component {
         <input
           type="email"
           id="email-field"
-          onChange={(e) => this.onChange(e)}
+          onChange={(e) => this.handleChange(e)}
           value={this.state.email}
           placeholder="Email"
         />
         <input
           type="textarea"
           id="description-field"
-          onChange={(e) => this.onChange(e)}
+          onChange={(e) => this.handleChange(e)}
           value={this.state.description}
           placeholder="Description"
         />
