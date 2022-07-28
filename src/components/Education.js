@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
+import Items from './Items';
 
 class Education extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Education extends Component {
       },
       educations: [],
     };
+    this.props = props;
     this.setEducation = props.setEducation;
   }
 
@@ -63,6 +65,12 @@ class Education extends Component {
     );
   };
 
+  deleteEdu = (id) => {
+    const newEdu = this.state.educations.filter(x => x.id !== id);
+    this.setState({ educations: newEdu }, ()=> this.setEducation(this.state.educations));
+
+  }
+
   render() {
     return (
       <div>
@@ -70,6 +78,7 @@ class Education extends Component {
             this.handleClick(e);
           }}>
         <h2>Education</h2>
+        <Items edu={this.state.educations} formatDate={this.props.formatDate} delete={this.deleteEdu}/>
         <input
           type="text"
           id="inst-field"
