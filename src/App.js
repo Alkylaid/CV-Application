@@ -44,11 +44,10 @@ class App extends Component {
     return (
       <div id="container">
         <div id="left">
-          <form onSubmit={this.editGeneral}>
+          
             <GeneralInfo setGeneral={this.setGeneral} />
             <Education setEducation={this.setEducation} />
             <Experience setExperience={this.setExperience} />
-          </form>
         </div>
         <div id="right">
           <Resume {...this.state}/>

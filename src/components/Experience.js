@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import uniqid from 'uniqid';
 
 class Experience extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Experience extends Component {
         responsibility: '',
         from: '',
         to: '',
+        id: uniqid(),
       },
       experiences: [],
     };
@@ -54,6 +56,7 @@ class Experience extends Component {
           responsibility: '',
           from: '',
           to: '',
+          id: uniqid(),
         },
       },
       () => this.setExperience(this.state.experiences)
@@ -62,7 +65,10 @@ class Experience extends Component {
 
   render() {
     return (
-      <div className="experience-info">
+      <div >
+        <form className="experience-info" onSubmit={(e) => {
+            this.handleClick(e);
+          }}>
         <h2>Experience</h2>
         <input
           type="text"
@@ -92,6 +98,7 @@ class Experience extends Component {
             onChange={(e) => this.handleChange(e)}
             value={this.state.experience.from}
             placeholder="From"
+            required
           />
           <input
             type="date"
@@ -99,16 +106,13 @@ class Experience extends Component {
             onChange={(e) => this.handleChange(e)}
             value={this.state.experience.to}
             placeholder="To"
+            required
           />
         </div>
-        <button
+        <input type="submit"
           className="save-button"
-          onClick={(e) => {
-            this.handleClick(e);
-          }}
-        >
-          Save
-        </button>
+          value="Save" />
+        </form>
       </div>
     );
   }

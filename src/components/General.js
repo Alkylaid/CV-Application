@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 class GeneralInfo extends Component {
   constructor(props) {
@@ -20,42 +20,53 @@ class GeneralInfo extends Component {
   handleChange = (e) => {
     switch (e.target.id) {
       case 'firstName-field':
-        this.setState({ firstName: e.target.value },() => { this.setGeneral(this.state)});
+        this.setState({ firstName: e.target.value }, () => {
+          this.setGeneral(this.state);
+        });
         break;
       case 'lastName-field':
-        this.setState({ lastName: e.target.value },() => { this.setGeneral(this.state)});
+        this.setState({ lastName: e.target.value }, () => {
+          this.setGeneral(this.state);
+        });
         break;
       case 'title-field':
-        this.setState({ title: e.target.value },() => { this.setGeneral(this.state)});
+        this.setState({ title: e.target.value }, () => {
+          this.setGeneral(this.state);
+        });
         break;
       case 'address-field':
-        this.setState({ address: e.target.value },() => { this.setGeneral(this.state)});
+        this.setState({ address: e.target.value }, () => {
+          this.setGeneral(this.state);
+        });
         break;
       case 'phone-field':
-        this.setState({ phone: e.target.value },() => { this.setGeneral(this.state)});
+        this.setState({ phone: e.target.value }, () => {
+          this.setGeneral(this.state);
+        });
         break;
       case 'email-field':
-        this.setState({ email: e.target.value },() => { this.setGeneral(this.state)});
+        this.setState({ email: e.target.value }, () => {
+          this.setGeneral(this.state);
+        });
         break;
       case 'description-field':
-        this.setState({ description: e.target.value },() => { this.setGeneral(this.state)});
+        this.setState({ description: e.target.value }, () => {
+          this.setGeneral(this.state);
+        });
         break;
       default:
     }
-
   };
 
   handleClick = (e) => {
     if (!this.state.disabled) {
-    e.preventDefault();
-    this.setState({disabled: true});
-    this.setGeneral(this.state);
+      e.preventDefault();
+      this.setState({ disabled: true });
+      this.setGeneral(this.state);
     } else {
-        this.setState({disabled: false})
+      this.setState({ disabled: false });
     }
-    
-  }
-
+  };
 
   render() {
     return (
@@ -118,8 +129,26 @@ class GeneralInfo extends Component {
           disabled={this.state.disabled}
           placeholder="Description"
         />
-        {!this.state.disabled && <button className="save-button" onClick={(e)=>{this.handleClick(e)}}>Save</button>}
-        {this.state.disabled && <button className="edit-button" onClick={(e)=>{this.handleClick(e)}}>Edit</button>}
+        {!this.state.disabled && (
+          <button
+            className="save-button"
+            onClick={(e) => {
+              this.handleClick(e);
+            }}
+          >
+            Save
+          </button>
+        )}
+        {this.state.disabled && (
+          <button
+            className="edit-button"
+            onClick={(e) => {
+              this.handleClick(e);
+            }}
+          >
+            Edit
+          </button>
+        )}
       </div>
     );
   }

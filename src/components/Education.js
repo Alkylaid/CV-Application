@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import uniqid from 'uniqid';
 
 class Education extends Component {
@@ -47,16 +47,28 @@ class Education extends Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    this.setState({
-      educations: this.state.educations.concat(this.state.education),
-      education: { name: '', city: '', major: '', from: '', to: '', id: uniqid()},
-    }, () => this.setEducation(this.state.educations));
-    
+    this.setState(
+      {
+        educations: this.state.educations.concat(this.state.education),
+        education: {
+          name: '',
+          city: '',
+          major: '',
+          from: '',
+          to: '',
+          id: uniqid(),
+        },
+      },
+      () => this.setEducation(this.state.educations)
+    );
   };
-  
+
   render() {
     return (
-      <div className="education-info">
+      <div>
+        <form className="education-info" onSubmit={(e) => {
+            this.handleClick(e);
+          }}>
         <h2>Education</h2>
         <input
           type="text"
@@ -71,6 +83,7 @@ class Education extends Component {
           onChange={(e) => this.handleChange(e)}
           value={this.state.education.city}
           placeholder="City/Location"
+      
         />
         <input
           type="text"
@@ -86,6 +99,7 @@ class Education extends Component {
             onChange={(e) => this.handleChange(e)}
             value={this.state.education.from}
             placeholder="From"
+            required
           />
           <input
             type="date"
@@ -93,16 +107,15 @@ class Education extends Component {
             onChange={(e) => this.handleChange(e)}
             value={this.state.education.to}
             placeholder="To"
+            required
           />
         </div>
-        <button
+        <input type="submit"
           className="save-button"
-          onClick={(e) => {
-            this.handleClick(e);
-          }}
-        >
-          Save
-        </button>
+          value="Save"
+        />
+        
+        </form>
       </div>
     );
   }
