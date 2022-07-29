@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
-import Items from './Items';
+import EduItem from './EduItem';
 
 class Education extends Component {
   constructor(props) {
@@ -65,65 +65,96 @@ class Education extends Component {
     );
   };
 
-  deleteEdu = (id) => {
-    const newEdu = this.state.educations.filter(x => x.id !== id);
-    this.setState({ educations: newEdu }, ()=> this.setEducation(this.state.educations));
+  editEdu = (id, fieldId, e) => {
+    const newEdu = this.state.educations.map((edu) => {
+      if (edu.id === id) {
+        switch (fieldId) {
+          case "inst-edit-field":
+            edu.name = e.target.value;
+            break;
+          case "city-edit-field":
+            edu.city = e.target.value;
+            break;
+          case "major-edit-field":
+            edu.major = e.target.value;
+            break;
+          case "from-edit-field":
+            edu.from = e.target.value;
+            break;
+          case "to-edit-field":
+            edu.to = e.target.value;
+            break;
+          default:
+        }
+      }
+      return edu;
+    });
+    this.setState({educations: newEdu}, () => this.setEducation(this.state.educations));
+  };
 
-  }
+  deleteEdu = (id) => {
+    const newEdu = this.state.educations.filter((x) => x.id !== id);
+    this.setState({ educations: newEdu }, () =>
+      this.setEducation(this.state.educations)
+    );
+  };
 
   render() {
     return (
       <div>
-        <form className="education-info" onSubmit={(e) => {
+        <h2 className="section-title">Education</h2>
+        <EduItem
+          edu={this.state.educations}
+          formatDate={this.props.formatDate}
+          delete={this.deleteEdu}
+          edit={this.editEdu}
+        />
+        <form
+          className="education-info"
+          onSubmit={(e) => {
             this.handleClick(e);
-          }}>
-        <h2>Education</h2>
-        <Items edu={this.state.educations} formatDate={this.props.formatDate} delete={this.deleteEdu}/>
-        <input
-          type="text"
-          id="inst-field"
-          onChange={(e) => this.handleChange(e)}
-          value={this.state.education.name}
-          placeholder="Name of Insitution"
-        />
-        <input
-          type="text"
-          id="city-field"
-          onChange={(e) => this.handleChange(e)}
-          value={this.state.education.city}
-          placeholder="City/Location"
-      
-        />
-        <input
-          type="text"
-          id="major-field"
-          onChange={(e) => this.handleChange(e)}
-          value={this.state.education.major}
-          placeholder="Major or Degree"
-        />
-        <div className="date-fields">
+          }}
+        >
           <input
-            type="date"
-            id="from-field"
+            type="text"
+            id="inst-field"
             onChange={(e) => this.handleChange(e)}
-            value={this.state.education.from}
-            placeholder="From"
-            required
+            value={this.state.education.name}
+            placeholder="Name of Insitution"
           />
           <input
-            type="date"
-            id="to-field"
+            type="text"
+            id="city-field"
             onChange={(e) => this.handleChange(e)}
-            value={this.state.education.to}
-            placeholder="To"
-            required
+            value={this.state.education.city}
+            placeholder="City/Location"
           />
-        </div>
-        <input type="submit"
-          className="save-button"
-          value="Save"
-        />
-        
+          <input
+            type="text"
+            id="major-field"
+            onChange={(e) => this.handleChange(e)}
+            value={this.state.education.major}
+            placeholder="Major or Degree"
+          />
+          <div className="date-fields">
+            <input
+              type="date"
+              id="from-field"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.education.from}
+              placeholder="From"
+              required
+            />
+            <input
+              type="date"
+              id="to-field"
+              onChange={(e) => this.handleChange(e)}
+              value={this.state.education.to}
+              placeholder="To"
+              required
+            />
+          </div>
+          <input type="submit" className="save-button" value="Save" />
         </form>
       </div>
     );
