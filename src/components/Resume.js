@@ -52,6 +52,8 @@ class Resume extends Component {
             );
           })}
         </div>
+        {this.props.education.length >0 &&
+          <hr/>}
         <div className="resume-exp">
           {this.props.experience.length > 0 && <h2>Experience</h2>}
           {this.props.experience.map((exp) => {
