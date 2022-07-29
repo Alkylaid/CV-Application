@@ -48,6 +48,7 @@ class App extends Component {
     return (
       <div id="container">
         <div id="left">
+          <h1>CV Builder</h1>
           <GeneralInfo setGeneral={this.setGeneral} />
           <Education
             setEducation={this.setEducation}
