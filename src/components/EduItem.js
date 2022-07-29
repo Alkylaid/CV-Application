@@ -22,7 +22,7 @@ class EduItem extends Component {
         {this.props.edu.map((edu) => {
           return (
             <div key={edu.id} >
-              <div className="item" id={edu.id}>
+              <div className="item edu" id={edu.id}>
                 <h3>{edu.major}</h3>
                 <p>
                   {this.props.formatDate(edu.from)} to{' '}
@@ -47,8 +47,7 @@ class EduItem extends Component {
                     onChange={(e) => this.props.edit(edu.id, "inst-edit-field", e)}
                     placeholder="Name of Insitution"
                   />
-                  <input
-                    type="text"
+                  <textarea
                     id="city-edit-field"
                     value={edu.city}
                     onChange={(e) => this.props.edit(edu.id, "city-edit-field", e)}

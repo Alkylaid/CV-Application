@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
+import ExpItem from './ExpItem';
 
 class Experience extends Component {
   constructor(props) {
@@ -64,13 +65,55 @@ class Experience extends Component {
     );
   };
 
+  editExp= (id, fieldId, e) => {
+    const newExp = this.state.experiences.map((exp) => {
+      if (exp.id === id) {
+        switch (fieldId) {
+          case "comp-edit-field":
+            exp.company = e.target.value;
+            break;
+          case "pos-edit-field":
+            exp.position = e.target.value;
+            break;
+          case "resp-edit-field":
+            exp.responsibility = e.target.value;
+            break;
+          case "fromEx-edit-field":
+            exp.from = e.target.value;
+            break;
+          case "toEx-edit-field":
+            exp.to = e.target.value;
+            break;
+          default:
+        }
+      }
+      return exp;
+    });
+    this.setState({experiences: newExp}, () => this.setExperience(this.state.experiences));
+  };
+
+  deleteExp = (id) => {
+    const newExp = this.state.experiences.filter((x) => x.id !== id);
+    this.setState({ experiences: newExp }, () =>
+      this.setExperience(this.state.experiences)
+    );
+  };
+
+
   render() {
     return (
       <div >
+        <h2 className="section-title">Experience</h2>
+        <ExpItem
+          exp={this.state.experiences}
+          formatDate={this.props.formatDate}
+          delete={this.deleteExp}
+          edit={this.editExp}
+        />
         <form className="experience-info" onSubmit={(e) => {
             this.handleClick(e);
           }}>
-        <h2>Experience</h2>
+             
         <input
           type="text"
           id="company-field"
@@ -85,8 +128,7 @@ class Experience extends Component {
           value={this.state.experience.position}
           placeholder="Position"
         />
-        <input
-          type="textfield"
+        <textarea
           id="resp-field"
           onChange={(e) => this.handleChange(e)}
           value={this.state.experience.responsibility}

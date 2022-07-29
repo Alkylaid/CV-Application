@@ -52,7 +52,7 @@ class App extends Component {
           
             <GeneralInfo setGeneral={this.setGeneral} />
             <Education setEducation={this.setEducation} formatDate={this.formatDate}/>
-            <Experience setExperience={this.setExperience} />
+            <Experience setExperience={this.setExperience} formatDate={this.formatDate} />
         </div>
         <div id="right">
           <Resume {...this.state} formatDate={this.formatDate}/>

@@ -121,8 +121,7 @@ class GeneralInfo extends Component {
           disabled={this.state.disabled}
           placeholder="Email"
         />
-        <input
-          type="textarea"
+        <textarea
           id="description-field"
           onChange={(e) => this.handleChange(e)}
           value={this.state.description}

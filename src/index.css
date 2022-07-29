@@ -12,11 +12,9 @@ body {
   font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100vw;
   height: auto;
   background-color: var(--white);
 }
-
 
 #container {
   width: 100%;
@@ -29,7 +27,7 @@ h2 {
   color: var(--red);
 }
 
-h2.section-title{
+h2.section-title {
   width: 75%;
   margin: 20px auto;
 }
@@ -38,13 +36,11 @@ h2.section-title{
   background-color: var(--white);
   width: 30%;
   border-right: 1px solid var(--purple);
-
 }
 
 #right {
   width: 70%;
   background-color: var(--white);
-
 }
 
 #resume {
@@ -59,16 +55,26 @@ h2.section-title{
 
 .general-info,
 .education-info,
-.experience-info{
+.experience-info {
   display: flex;
   flex-direction: column;
   width: 75%;
   margin: 0 auto;
-
 }
+
+
 
 input {
   height: 25px;
+  border-radius: 5px;
+  margin: 5px;
+  border: 1px solid var(--purple);
+  font-family: 'Noto Sans', sans-serif;
+}
+
+textarea{
+  height: 70px;
+  resize: none;
   border-radius: 5px;
   margin: 5px;
   border: 1px solid var(--purple);
@@ -85,6 +91,7 @@ input[type='date']:valid:before {
   content: '';
 }
 
+
 .save-button,
 .edit-button {
   border: none;
@@ -96,9 +103,11 @@ input[type='date']:valid:before {
   height: 25px;
   margin: 5px;
   cursor: pointer;
+  margin-left: auto;
 }
 
-.save-button:hover,.edit-button:hover{
+.save-button:hover,
+.edit-button:hover {
   background-color: var(--blue);
 }
 
@@ -110,7 +119,9 @@ input[type='date']:valid:before {
 #to-field,
 #from-field,
 #exTo-field,
-#exFrom-field, #from-edit-field, #to-edit-field {
+#exFrom-field,
+#from-edit-field,
+#to-edit-field {
   width: 50%;
 }
 
@@ -118,7 +129,6 @@ input[type='date']:valid:before {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
 }
 .resume-heading h1 {
   margin-top: 0;
@@ -136,18 +146,17 @@ input[type='date']:valid:before {
   margin-top: 10px;
 }
 
-.resume-heading.contact div{
+.resume-heading.contact div {
   margin-bottom: 10px;
-  text-align:right;
+  text-align: right;
+}
+.resume-heading.contact span {
+  margin-right: 10px;
+  text-align: left;
+}
 
-  }
-.resume-heading.contact span{
-    margin-right: 10px;
-    text-align:left;
-    }
-
-  
-.resume-edu-item, .resume-exp-item{
+.resume-edu-item,
+.resume-exp-item {
   display: grid;
   padding: 10px;
   margin-bottom: 50px;
@@ -156,7 +165,6 @@ input[type='date']:valid:before {
 .resume-edu-item {
   grid-template-columns: 50% 50%;
   grid-template-rows: 1fr 1fr;
-
 }
 
 .resume-edu-item-date,
@@ -168,15 +176,15 @@ input[type='date']:valid:before {
   margin: 0;
 }
 
-.resume-edu-item-date, .resume-exp-item-date {
+.resume-edu-item-date,
+.resume-exp-item-date {
   justify-self: end;
 }
 
-.resume-exp-item{
-  display:grid;
+.resume-exp-item {
+  display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: repeat(3,auto);
-
+  grid-template-rows: repeat(3, auto);
 }
 
 .resume-exp-item-resp {
@@ -188,25 +196,38 @@ input[type='date']:valid:before {
   display: grid;
   grid-template-columns: 50% 50%;
   background-color: var(--pink);
-  border-radius:5px;
+  border-radius: 5px;
   width: 72%;
   margin: 0 auto 20px auto;
 }
 
-.item h3, .item p{
+.item h3,
+.item p {
   padding: 0;
   margin: 5px;
 }
 
-.item :nth-child(2), .item div{
+.item :nth-child(2){
   justify-self: end;
 }
 
-.item div span {
-  margin-right: 10px;
+.item div{
+  justify-self: center;
+  grid-column: 1/3;
 }
 
-.edit-edu-item{
+.item .fa-regular{
+  font-size: 1.3rem;
+  margin: 5px;
+}
+
+.item .fa-regular:hover{
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.edit-edu-item,
+.edit-exp-item {
   flex-direction: column;
   background-color: var(--pink);
   padding: 5px;
@@ -214,4 +235,18 @@ input[type='date']:valid:before {
   width: 72%;
   margin: 0 auto 20px auto;
   display: none;
+}
+.item.edu :nth-child(3),
+.item.edu :nth-child(4),
+.item.exp :nth-child(3),
+.item.exp :nth-child(4) {
+  grid-column: 1/3;
+}
+
+.item.exp :nth-child(4) {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
