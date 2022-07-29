@@ -32,6 +32,8 @@ h2 {
   color: var(--red);
 }
 
+
+
 h2.section-title {
   width: 75%;
   margin: 20px auto;
@@ -149,13 +151,16 @@ textarea:focus {
 }
 .resume-heading h1 {
   margin-top: 0;
+
 }
+
+
 .resume-heading.person {
   display: block;
 }
 
 .resume-heading.person p {
-  margin-top: -20px;
+ margin-top: 0px;
 }
 
 .resume-heading.contact {
