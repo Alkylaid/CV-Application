@@ -110,8 +110,7 @@ class GeneralInfo extends Component {
           onChange={(e) => this.handleChange(e)}
           value={this.state.phone}
           disabled={this.state.disabled}
-          placeholder="Phone: 999-999-9999"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          placeholder="Phone"
         />
         <input
           type="email"

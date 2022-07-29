@@ -62,10 +62,9 @@ h2.section-title {
   margin: 0 auto;
 }
 
-.experience-info{
+.experience-info {
   padding-bottom: 30px;
 }
-
 
 input {
   height: 25px;
@@ -75,7 +74,7 @@ input {
   font-family: 'Noto Sans', sans-serif;
 }
 
-textarea{
+textarea {
   height: 70px;
   resize: none;
   border-radius: 5px;
@@ -94,7 +93,8 @@ input[type='date']:valid:before {
   content: '';
 }
 
-input:focus, textarea:focus{
+input:focus,
+textarea:focus {
   outline: 1px solid var(--blue);
 }
 
@@ -116,6 +116,11 @@ input:focus, textarea:focus{
 .save-button:hover,
 .edit-button:hover {
   background-color: var(--blue);
+}
+
+.save-button:active,
+.edit-button:active {
+  transform: scale(0.95);
 }
 
 .date-fields {
@@ -162,13 +167,11 @@ input:focus, textarea:focus{
   text-align: left;
 }
 
-
 .resume-edu-item,
 .resume-exp-item {
   display: grid;
   padding: 10px;
   margin-bottom: 50px;
-
 }
 
 .resume-edu-item {
@@ -213,11 +216,8 @@ input:focus, textarea:focus{
   transition: 0.2s;
 }
 
-.item:hover{
+.item:hover {
   transform: scale(1.03);
-
-
-
 }
 
 .item h3,
@@ -226,21 +226,21 @@ input:focus, textarea:focus{
   margin: 5px;
 }
 
-.item :nth-child(2){
+.item :nth-child(2) {
   justify-self: end;
 }
 
-.item div{
+.item div {
   justify-self: center;
   grid-column: 1/3;
 }
 
-.item .fa-regular{
+.item .fa-regular {
   font-size: 1.3rem;
   margin: 5px;
 }
 
-.item .fa-regular:hover{
+.item .fa-regular:hover {
   color: var(--blue);
   cursor: pointer;
 }
@@ -271,6 +271,6 @@ input:focus, textarea:focus{
   text-overflow: ellipsis;
 }
 
-hr{
+hr {
   border-top: 1px dashed double var(--purple);
 }

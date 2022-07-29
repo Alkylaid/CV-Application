@@ -69,19 +69,19 @@ class Education extends Component {
     const newEdu = this.state.educations.map((edu) => {
       if (edu.id === id) {
         switch (fieldId) {
-          case "inst-edit-field":
+          case 'inst-edit-field':
             edu.name = e.target.value;
             break;
-          case "city-edit-field":
+          case 'city-edit-field':
             edu.city = e.target.value;
             break;
-          case "major-edit-field":
+          case 'major-edit-field':
             edu.major = e.target.value;
             break;
-          case "from-edit-field":
+          case 'from-edit-field':
             edu.from = e.target.value;
             break;
-          case "to-edit-field":
+          case 'to-edit-field':
             edu.to = e.target.value;
             break;
           default:
@@ -89,7 +89,9 @@ class Education extends Component {
       }
       return edu;
     });
-    this.setState({educations: newEdu}, () => this.setEducation(this.state.educations));
+    this.setState({ educations: newEdu }, () =>
+      this.setEducation(this.state.educations)
+    );
   };
 
   deleteEdu = (id) => {
@@ -121,6 +123,7 @@ class Education extends Component {
             onChange={(e) => this.handleChange(e)}
             value={this.state.education.name}
             placeholder="Name of Insitution"
+            required
           />
           <input
             type="text"
@@ -128,6 +131,7 @@ class Education extends Component {
             onChange={(e) => this.handleChange(e)}
             value={this.state.education.city}
             placeholder="City/Location"
+            required
           />
           <input
             type="text"
@@ -135,6 +139,7 @@ class Education extends Component {
             onChange={(e) => this.handleChange(e)}
             value={this.state.education.major}
             placeholder="Major or Degree"
+            required
           />
           <div className="date-fields">
             <input

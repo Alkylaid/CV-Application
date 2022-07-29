@@ -3,7 +3,7 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import GeneralInfo from './components/General';
 import Resume from './components/Resume';
-import {parseISO, format} from 'date-fns';
+import { parseISO, format } from 'date-fns';
 
 class App extends Component {
   constructor() {
@@ -19,7 +19,7 @@ class App extends Component {
         description: '',
       },
       education: [],
-      experience: []
+      experience: [],
     };
     this.setGeneral = this.setGeneral.bind(this);
     this.setEducation = this.setEducation.bind(this);
@@ -32,7 +32,7 @@ class App extends Component {
   };
 
   setEducation = (educationInfo) => {
-    this.setState({ education: educationInfo});
+    this.setState({ education: educationInfo });
   };
 
   setExperience = (expInfo) => {
@@ -41,21 +41,25 @@ class App extends Component {
 
   formatDate = (date) => {
     const newDate = parseISO(date, 'yyyy/MM/dd', new Date());
-    return format(newDate, 'LLLL yyyy')
-  }
-
+    return format(newDate, 'LLLL yyyy');
+  };
 
   render() {
     return (
       <div id="container">
         <div id="left">
-          
-            <GeneralInfo setGeneral={this.setGeneral} />
-            <Education setEducation={this.setEducation} formatDate={this.formatDate}/>
-            <Experience setExperience={this.setExperience} formatDate={this.formatDate} />
+          <GeneralInfo setGeneral={this.setGeneral} />
+          <Education
+            setEducation={this.setEducation}
+            formatDate={this.formatDate}
+          />
+          <Experience
+            setExperience={this.setExperience}
+            formatDate={this.formatDate}
+          />
         </div>
         <div id="right">
-          <Resume {...this.state} formatDate={this.formatDate}/>
+          <Resume {...this.state} formatDate={this.formatDate} />
         </div>
       </div>
     );
