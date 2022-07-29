@@ -30,25 +30,31 @@ h2 {
 }
 
 h2.section-title{
-  width: 50%;
-  margin-left: 25px;
+  width: 75%;
+  margin: 20px auto;
 }
 
 #left {
   background-color: var(--white);
-  width: 50%;
+  width: 30%;
   border-right: 1px solid var(--purple);
 
 }
 
 #right {
-  width: 50%;
+  width: 70%;
   background-color: var(--white);
 
 }
 
 #resume {
-  margin: 25px;
+  width: 60%;
+  margin: 0 auto 0 auto;
+  background-color: #fff;
+  min-height: 100vh;
+  height: auto;
+  padding: 0px 30px;
+  border-radius: 3px;
 }
 
 .general-info,
@@ -56,8 +62,9 @@ h2.section-title{
 .experience-info{
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin-left: 25px;
+  width: 75%;
+  margin: 0 auto;
+
 }
 
 input {
@@ -111,6 +118,7 @@ input[type='date']:valid:before {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
 }
 .resume-heading h1 {
   margin-top: 0;
@@ -125,6 +133,7 @@ input[type='date']:valid:before {
 
 .resume-heading.contact {
   display: inline-block;
+  margin-top: 10px;
 }
 
 .resume-heading.contact div{
@@ -147,7 +156,7 @@ input[type='date']:valid:before {
 .resume-edu-item {
   grid-template-columns: 50% 50%;
   grid-template-rows: 1fr 1fr;
- 
+
 }
 
 .resume-edu-item-date,
@@ -180,9 +189,8 @@ input[type='date']:valid:before {
   grid-template-columns: 50% 50%;
   background-color: var(--pink);
   border-radius:5px;
-  margin-bottom: 20px;
-  width: 50%;
-  margin-left: 25px;
+  width: 72%;
+  margin: 0 auto 20px auto;
 }
 
 .item h3, .item p{
@@ -203,8 +211,7 @@ input[type='date']:valid:before {
   background-color: var(--pink);
   padding: 5px;
   border-radius: 5px;
-  margin-bottom: 20px;
-  width: 50%;
-  margin-left: 25px;
+  width: 72%;
+  margin: 0 auto 20px auto;
   display: none;
 }
